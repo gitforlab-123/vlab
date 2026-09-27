@@ -1,0 +1,16 @@
+PowerShell → Run as Administrator.
+Get-VMSwitch
+New-VM -Name "UbuntuVM" -MemoryStartupBytes 2GB -NewVHDPath "C:\Hyper-V\UbuntuVM.vhdx" -NewVHDSizeBytes 20GB
+
+First see your switch:
+Connect-VMNetworkAdapter -VMName "UbuntuVM" -SwitchName "Default Switch"
+Replace "Default Switch" with whatever switch name you got from Get-VMSwitch.
+attach iso : Add-VMDvdDrive -VMName "UbuntuVM" -Path "C:\ISO\ubuntu.iso"
+
+start vm
+Start-VM -Name "UbuntuVM"
+
+check vm
+Get-VM -Name "UbuntuVM"
+
+Stop-VM -Name "UbuntuVM"
