@@ -8,4 +8,9 @@ vgcreate my_vg /dev/sdb
 vgdisplay
 lvcreate –L 3G –n my_lv my_vg
 lvdisplay
+
+sudo mkfs.ext4 /dev/my_vg/my_lv
+sudo mkdir -p /mnt/my_lv
+sudo mount /dev/my_vg/my_lv /mnt/my_lv
+
 df -h
