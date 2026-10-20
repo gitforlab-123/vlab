@@ -1,0 +1,11 @@
+Ex 10
+Storage Virtualization
+Sudo -s
+fdisk –l
+pvcreate /dev/sdb
+pvdisplay
+vgcreate my_vg /dev/sdb
+vgdisplay
+lvcreate –L 3G –n my_lv my_vg
+lvdisplay
+df -h
